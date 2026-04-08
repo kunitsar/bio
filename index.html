@@ -1,150 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atribossfuckyeah) | bio</title>
-    
-    <meta property="og:title" content="atribossfuckyeah)">
-    <meta property="og:description" content="Based in Yokohama, Japan.">
-    <meta name="theme-color" content="#ff003c">
-
-    <style>
-        :root {
-            --accent: #ff003c; /* Неоновый красный/розовый */
-            --bg: #050505;
-            --card-bg: #0c0c0c;
-        }
-
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: #fff;
-            overflow: hidden;
-        }
-
-        /* Фоновый эффект сетки */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: perspective(500px) rotateX(60deg) translateY(-10%);
-            z-index: -1;
-            animation: move 20s linear infinite;
-        }
-
-        @keyframes move {
-            from { background-position: 0 0; }
-            to { background-position: 0 1000px; }
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #1a1a1a;
-            padding: 50px 30px;
-            border-radius: 2px; /* Острые углы для стиля */
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        /* Декор углов */
-        .card::before {
-            content: "";
-            position: absolute;
-            top: -2px; left: -2px; width: 20px; height: 20px;
-            border-top: 2px solid var(--accent); border-left: 2px solid var(--accent);
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            letter-spacing: -1px;
-            margin: 0 0 5px 0;
-            font-weight: 800;
-        }
-
-        .discord-tag {
-            font-family: monospace;
-            color: var(--accent);
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .info-box {
-            margin: 30px 0;
-            text-align: left;
-            border-left: 1px solid #333;
-            padding-left: 20px;
-        }
-
-        .info-item {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        .info-item span {
-            color: #eee;
-            display: block;
-            font-weight: 500;
-        }
-
-        .btn {
-            display: block;
-            text-decoration: none;
-            color: #fff;
-            border: 1px solid #333;
-            padding: 15px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.4s;
-        }
-
-        .btn:hover {
-            border-color: var(--accent);
-            background: rgba(255, 0, 60, 0.05);
-            color: var(--accent);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
-        }
-
-        .location-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            color: #444;
-            margin-top: 20px;
-            display: block;
-        }
-    </style>
+    <title>atribossfuckyeah - Digital Space</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="top-panel">
+        <div class="user-info">atribossfuckyeah@github.io</div>
+        <div class="time-date">14:37:01 Tue Oct 26, 2024</div>
+        <div class="social-links">
+            <a href="https://discordapp.com/users/k71f" target="_blank">Discord: k71f</a>
+            <a href="https://github.com/atribossfuckyeah" target="_blank">GitHub</a>
+        </div>
+    </header>
 
-    <div class="card">
-        <h1>atribossfuckyeah)</h1>
-        <div class="discord-tag">DISCORD: k71f</div>
-
-        <div class="info-box">
-            <div class="info-item">AGE <span>19 y.o.</span></div>
-            <div class="info-item">BORN <span>Russia</span></div>
-            <div class="info-item">LOCATION <span>Yokohama, Kanagawa, Japan</span></div>
+    <main id="desktop">
+        <!-- Здесь будут динамически создаваться "окна" -->
+        <div class="window" id="terminal-window">
+            <div class="window-header">
+                <span>Terminal - /home/user/ $</span>
+                <div class="window-controls">
+                    <button>-</button>
+                    <button>□</button>
+                    <button>x</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <p>welcome to my digital space!</p>
+                <p>type 'help' for commands.</p>
+                <p>check out my projects: 'ls -F projects/'</p>
+                <p>edit conffg.html</p>
+                <div class="terminal-input">
+                    <span class="prompt">atribossfuckyeah@github.io $</span>
+                    <input type="text" id="command-input">
+                </div>
+            </div>
         </div>
 
-        <a href="https://discord.com" class="btn" target="_blank">Contact via Discord</a>
-        
-        <span class="location-tag">System online // Yokohama Hub</span>
-    </div>
+        <!-- Пример другого окна (можно создать динамически) -->
+        <div class="window" id="about-window" style="left: 300px; top: 150px; display: none;">
+            <div class="window-header">
+                <span>About Me</span>
+                <div class="window-controls">
+                    <button>-</button>
+                    <button>□</button>
+                    <button>x</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <p>My name is atribossfuckyeah, I'm 19 years old.</p>
+                <p>I'm building this website to showcase my projects and skills.</p>
+                <p>Discord: k71f</p>
+            </div>
+        </div>
+    </main>
 
+    <script src="script.js"></script>
 </body>
 </html>
