@@ -1,336 +1,237 @@
-/* Переменные для цветовой палитры */
+/* Переменные для цветовой палитры Hyprland / Terminal */
 :root {
-    --bg-dark: #0A192F; /* Глубокий синий/темно-серый */
-    --text-light: #CCD6F6; /* Светло-серый */
-    --accent-color: #64FFDA; /* Яркий бирюзовый акцент */
-    --secondary-accent: #A8B2D1; /* Дополнительный серый акцент */
-    --card-bg: #112240; /* Фон карточек/блоков */
-    --border-color: #233554; /* Цвет границы/разделителя */
+    --bg-dark: #1a1a2e; /* Глубокий темно-синий */
+    --text-primary: #e0e0e0; /* Светло-серый */
+    --accent-green: #00ff00; /* Классический зеленый текст терминала */
+    --accent-blue: #00bcd4; /* Бирюзовый акцент */
+    --terminal-bg: #0d1117; /* Фон терминала (почти черный) */
+    --terminal-border: #333; /* Рамка терминала */
+    --terminal-header-bg: #282c34; /* Заголовок окна терминала */
+    --link-color: #61afef; /* Цвет ссылок */
 }
 
 /* Общие стили */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Fira Code', monospace; /* Моноширинный шрифт */
     margin: 0;
     padding: 0;
     background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    scroll-behavior: smooth;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-}
-
-h1 { font-size: 3.5em; text-align: center; }
-h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px;}
-h3 { font-size: 1.8em; }
-
-p {
-    margin-bottom: 1em;
-}
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--secondary-accent);
-}
-
-/* Кнопки */
-.btn {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--bg-dark);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-    background-color: var(--secondary-accent);
-    transform: translateY(-2px);
-}
-
-.btn-text {
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-.btn-text:hover {
-    text-decoration: underline;
-}
-
-/* Header (шапка сайта) */
-.header {
-    background-color: rgba(10, 25, 47, 0.9); /* Полупрозрачный фон */
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.header .container {
+    color: var(--text-primary);
+    overflow: hidden; /* Чтобы избежать прокрутки страницы */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.5em;
-    color: var(--accent-color);
-}
-
-.nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav ul li {
-    margin-left: 25px;
-}
-
-.nav ul li a {
-    color: var(--text-light);
-    font-weight: 400;
-    position: relative;
-}
-
-.nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    left: 0;
-    bottom: -5px;
-    transition: width 0.3s ease;
-}
-
-.nav ul li a:hover::after {
-    width: 100%;
-}
-
-/* Hero Section (главный экран) */
-.hero-section {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url('https://via.placeholder.com/1920x1080/0A192F/007AFF?text=Cosmic+Background') no-repeat center center/cover;
-    position: relative;
-    overflow: hidden; /* Для частиц */
-}
-
-/* Анимация для частиц (звезд) - можно реализовать с JS */
-/* .hero-section::before {
-    content: '';
+/* Фон-сетка для декорации */
+.background-grid {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top left, rgba(0,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at bottom right, rgba(255,0,255,0.1) 0%, transparent 50%);
-    opacity: 0.7;
-    animation: fadeEffect 10s infinite alternate;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px; /* Размер ячеек сетки */
+    z-index: -1;
+    opacity: 0.8;
 }
 
-@keyframes fadeEffect {
-    0% { opacity: 0.7; }
-    100% { opacity: 0.9; }
-} */
-
-
-.hero-section h1 {
-    font-size: 5em;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--accent-color);
-    text-shadow: 0 0 15px rgba(100, 255, 218, 0.6); /* Свечение */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.hero-section .subtitle {
-    font-size: 1.5em;
-    color: var(--secondary-accent);
+a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
 }
 
-/* Секции контента */
-section {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-section:last-of-type {
-    border-bottom: none;
-}
-
-/* About Section */
-.about-section p {
-    max-width: 800px;
-    margin: 0 auto 1em auto;
-    text-align: center;
-    font-size: 1.1em;
-}
-
-/* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.project-card h3 {
-    margin: 20px 20px 10px;
-    color: var(--accent-color);
-}
-
-.project-card p {
-    margin: 0 20px 20px;
-    font-size: 0.95em;
-    color: var(--secondary-accent);
-}
-
-.project-card .btn {
-    margin: 0 20px 20px;
-}
-
-/* Blog Section */
-.blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.blog-post-preview {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-post-preview:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.blog-post-preview h3 {
-    margin-top: 0;
-    color: var(--accent-color);
-}
-
-.blog-post-preview .post-meta {
-    font-size: 0.85em;
-    color: var(--secondary-accent);
-    margin-bottom: 15px;
-}
-
-/* Contact Section */
-.contact-section p {
-    text-align: center;
-    font-size: 1.1em;
-}
-
-.contact-section .link-glow {
-    color: var(--accent-color);
-    text-shadow: 0 0 5px rgba(100, 255, 218, 0.4);
-    transition: text-shadow 0.3s ease;
-}
-
-.contact-section .link-glow:hover {
-    text-shadow: 0 0 15px rgba(100, 255, 218, 0.8);
-}
-
-
-/* Footer */
-.footer {
-    background-color: var(--bg-dark);
-    padding: 30px 0;
-    text-align: center;
-    color: var(--secondary-accent);
+/* Waybar (верхняя панель) */
+.waybar {
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     font-size: 0.9em;
-    border-top: 1px solid var(--border-color);
 }
 
-/* Медиа-запросы для адаптивности */
+.waybar-left, .waybar-center, .waybar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-nixos svg {
+    fill: var(--accent-green); /* Цвет логотипа */
+    vertical-align: middle;
+}
+
+.user-host {
+    color: var(--accent-green);
+    font-weight: bold;
+}
+
+.waybar-center {
+    color: var(--text-primary);
+}
+
+.waybar-right i {
+    color: var(--secondary-text);
+    font-size: 1.1em;
+    opacity: 0.7;
+}
+
+/* Desktop Area */
+.desktop-area {
+    flex-grow: 1; /* Занимает все доступное пространство */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Terminal Window */
+.terminal-window {
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--accent-blue); /* Рамка акцентного цвета */
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.4); /* Свечение */
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background-color: var(--terminal-header-bg);
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--terminal-border);
+    color: var(--text-primary);
+    font-size: 0.9em;
+}
+
+.terminal-title {
+    opacity: 0.8;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.control-btn {
+    background: none;
+    border: 1px solid var(--terminal-border);
+    color: var(--text-primary);
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.control-btn:hover {
+    background-color: var(--accent-blue);
+    color: var(--terminal-bg);
+}
+
+.control-btn.close-btn:hover {
+    background-color: #ff5555; /* Красный для закрытия */
+    color: #fff;
+}
+
+
+.terminal-content {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto; /* Если контента будет много */
+    font-size: 1.05em;
+    color: var(--text-primary);
+}
+
+.terminal-content p {
+    margin: 0; /* Убираем стандартные отступы параграфов */
+    padding-bottom: 5px;
+}
+
+.section-title {
+    color: var(--accent-green);
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    }
+
+.prompt-arrow {
+    color: var(--accent-blue);
+    margin-right: 5px;
+}
+
+.sys-info {
+    color: var(--accent-green);
+}
+
+.sys-label {
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.prompt {
+    color: var(--accent-green);
+    margin-right: 5px;
+}
+
+.blink-cursor {
+    display: inline-block;
+    background-color: var(--text-primary);
+    width: 8px;
+    height: 1em; /* Высота строки */
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: var(--text-primary); }
+}
+
+/* Адаптивность */
 @media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
+    .waybar {
+        font-size: 0.8em;
+        padding: 5px 10px;
     }
-    .nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
+    .waybar-left, .waybar-right {
+        gap: 5px;
     }
-    .nav ul li {
-        margin: 0 10px 10px;
+    .logo-nixos svg {
+        width: 20px;
+        height: 20px;
     }
-    .hero-section h1 {
-        font-size: 3em;
+    .terminal-window {
+        width: 95%;
     }
-    .hero-section .subtitle {
-        font-size: 1.2em;
-    }
-    h2 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section h1 {
-        font-size: 2.5em;
-    }
-    .hero-section .subtitle {
+    .terminal-content {
+        padding: 15px;
         font-size: 1em;
-    }
-    h2 {
-        font-size: 1.8em;
-    }
-    .projects-grid, .blog-posts {
-        grid-template-columns: 1fr;
     }
 }
