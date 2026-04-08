@@ -1,18 +1,38 @@
-// Эффект небольшого наклона карточки при движении мыши
-const card = document.querySelector('.glass-card');
+const canvas = document.getElementById('rainCanvas');
+const ctx = canvas.getContext('2d');
 
-document.addEventListener('mousemove', (e) => {
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-});
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Сброс при уходе мыши
-document.addEventListener('mouseenter', () => {
-    card.style.transition = "none";
-});
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+const alphabet = latin + nums;
 
-document.addEventListener('mouseleave', () => {
-    card.style.transition = "all 0.5s ease";
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-});
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const rainDrops = [];
+
+for( let x = 0; x < columns; x++ ) {
+    rainDrops[x] = 1;
+}
+
+const draw = () => {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#333'; // Цвет дождя (темно-серый)
+    ctx.font = fontSize + 'px monospace';
+
+    for(let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.alphabet.length));
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+        if(rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+    }
+};
+
+setInterval(draw, 30);
