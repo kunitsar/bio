@@ -3,101 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atribossfuckyeah - Digital Explorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>atribossfuckyeah @ Hyprland Arch Linux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Iconfont для системных иконок, если нужны (например, Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">ATRIBOSSFUCKYEAH</div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#about">Обо мне</a></li>
-                    <li><a href="#projects">Проекты</a></li>
-                    <li><a href="#blog">Блог</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
+    <div class="background-grid"></div> <!-- Декоративный фон-сетка -->
+
+    <header class="waybar">
+        <div class="waybar-left">
+            <span class="logo-nixos">
+                <!-- SVG логотип NixOS -->
+                <svg viewBox="0 0 200 200" width="24" height="24" fill="currentColor">
+                    <path d="M100 0C44.77 0 0 44.77 0 100c0 55.23 44.77 100 100 100 55.23 0 100-44.77 100-100C200 44.77 155.23 0 100 0zm-2.82 173.34h-48.4c-4.63 0-8.39-3.76-8.39-8.39V89.4c0-4.63 3.76-8.39 8.39-8.39h48.4c4.63 0 8.39 3.76 8.39 8.39v75.55c0 4.63-3.76 8.39-8.39 8.39zM100 26.66c-4.63 0-8.39 3.76-8.39 8.39v48.4c0 4.63 3.76 8.39 8.39 8.39h48.4c4.63 0 8.39-3.76 8.39-8.39v-48.4c0-4.63-3.76-8.39-8.39-8.39h-48.4zM102.82 173.34c-4.63 0-8.39-3.76-8.39-8.39V89.4c0-4.63 3.76-8.39 8.39-8.39h48.4c4.63 0 8.39 3.76 8.39 8.39v75.55c0 4.63-3.76 8.39-8.39 8.39h-48.4z"/>
+                </svg>
+            </span>
+            <span class="user-host">atribossfuckyeah@ARCH</span>
+        </div>
+        <div class="waybar-center">
+            <span id="datetime">16:40 Fri Nov 29</span>
+        </div>
+        <div class="waybar-right">
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-volume-up"></i>
+            <!-- Можно добавить другие иконки -->
         </div>
     </header>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <h1>Digital Explorer.</h1>
-            <p class="subtitle">Crafting cosmic experiences with code.</p>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>Обо мне</h2>
-            <p>Привет! Меня зовут atribossfuckyeah, мне 19 лет. Я увлеченный долбаеб. Создаю всякую хуйню уже 4 года на C++ C# Py ASM, ну и там чет по хуйне еще го раст руби свифт.</p>
-            <p>Я аутист!</p>
-        </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2>Проекты</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=Project+1" alt="Project 1">
-                    <h3>Nebula UI</h3>
-                    <p>Интерфейс, вдохновленный космической пылью.</p>
-                    <a href="#" class="btn">Подробнее</a>
+    <main class="desktop-area">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">zellij://bios</span>
+                <div class="terminal-controls">
+                    <button class="control-btn minimize-btn">_</button>
+                    <button class="control-btn maximize-btn">□</button>
+                    <button class="control-btn close-btn">x</button>
                 </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=Project+2" alt="Project 2">
-                    <h3>Star Chart Data Viz</h3>
-                    <p>Визуализация данных звездных карт.</p>
-                    <a href="#" class="btn">Подробнее</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/300x200?text=Project+3" alt="Project 3">
-                    <h3>Astro-Photography Portal</h3>
-                    <p>Платформа для обмена астрофотографиями.</p>
-                    <a href="#" class="btn">Подробнее</a>
+            </div>
+            <div class="terminal-content">
+                <p class="section-title">bios</p>
+                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">System:</span> Arch Linux</p>
+                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">WM:</span> Hyprland</p>
+                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">Terminal:</span> zellij</p>
+                <br>
+                <p><span class="sys-label">User:</span> atribossfuckyeah</p>
+                <p><span class="sys-label">Discord:</span> <a href="https://discordapp.com/users/k71f" target="_blank">k71f</a></p>
+                <p><span class="sys-label">Age:</span> 19</p>
+                <br>
+                <div class="command-line">
+                    <span class="prompt">[atribossfuckyeah@ARCH ~]$</span> <span class="blink-cursor">_</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <h2>Блог</h2>
-            <div class="blog-posts">
-                <article class="blog-post-preview">
-                    <h3>Мои первые шаги в вагину горестрит</h3>
-                    <p class="post-meta">20 октября 2024</p>
-                    <p>Небольшой рассказ о том, как я начал сосать хуи...</p>
-                    <a href="#" class="btn-text">Читать далее &rarr;</a>
-                </article>
-                <article class="blog-post-preview">
-                    <h3>шо сука</h3>
-                    <p class="post-meta">15 октября 2024</p>
-                    <p>ЫЭЫЭЫЭЫЭЭЫХЫХХУХХАХАХАА6666666666666666666...</p>
-                    <a href="#" class="btn-text">Читать далее &rarr;</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Контакты</h2>
-            <p>Хотите связаться? Буду рад что вы проигнорите это сообщение нахуй!</p>
-            <p>Discord: <a href="https://discordapp.com/users/k71f" target="_blank" class="link-glow">k71f</a></p>
-            <p>GitHub: <a href="https://github.com/kunitsar" target="_blank" class="link-glow">atribossfuckyeah</a></p>
-            <p>Email: <a href="PRIVETGORESTREET@gmail.com" class="link-glow">your_email@example.com</a></p>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 atribossfuckyeah. Все права защищены.</p>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
