@@ -1,71 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Плавный скролл для якорей
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    const datetimeElement = document.getElementById('datetime');
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            weekday: 'short',
+            month: 'short',
+            day: '2-digit'
+        };
+        const formattedDate = now.toLocaleString('en-US', options); // 'Fri Nov 29'
+        const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }); // '16:40'
 
-    // Опционально: Анимированные частицы на заднем плане (пример с Canvas)
-    // Эта часть сложнее и может быть реализована как отдельный компонент или библиотека.
-    // Пример простой реализации:
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.style.position = 'absolute';
-        canvas.style.top = '0';
-        canvas.style.left = '0';
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
-        canvas.style.zIndex = '-1'; // Под контентом
-        heroSection.appendChild(canvas);
+        // Форматируем как "16:40 Fri Nov 29"
+        // Разделяем на части и собираем в нужном порядке
+        const parts = formattedDate.split(', '); // Например: ["Fri", "Nov 29", "16:40"]
+        const finalString = ${time} ${parts[0]} ${parts[1]};
 
-        let particles = [];
-        const numParticles = 100;
-
-        function resizeCanvas() {
-            canvas.width = heroSection.clientWidth;
-            canvas.height = heroSection.clientHeight;
-            createParticles(); // Пересоздаем частицы при изменении размера
-        }
-
-        function createParticles() {
-            particles = [];
-            for (let i = 0; i < numParticles; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 1.5 + 0.5, // 0.5 to 2
-                    color: rgba(255, 255, 255, ${Math.random() * 0.8 + 0.2}), // Полупрозрачные белые звезды
-                    speed: Math.random() * 0.5 + 0.1 // Медленное движение
-                });
-            }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(p => {
-                p.y += p.speed;
-                if (p.y > canvas.height) {
-                    p.y = 0; // Возвращаем частицу наверх
-                    p.x = Math.random() * canvas.width; // Случайное X
-                }
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = p.color;
-                ctx.fill();
-            });
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas(); // Инициализация
-        animateParticles();
+        datetimeElement.textContent = finalString;
     }
+
+    // Обновляем время сразу и затем каждую секунду
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    // Дополнительно: Можно добавить обработчики для кнопок управления окном,
+    // но в данном случае они будут просто заглушками, так как окно одно и фиксировано.
+    // Например, для кнопки "close" можно просто спрятать окно:
+    // const closeBtn = document.querySelector('.close-btn');
+    // const terminalWindow = document.querySelector('.terminal-window');
+    // if (closeBtn && terminalWindow) {
+    //     closeBtn.addEventListener('click', () => {
+    //         terminalWindow.style.display = 'none';
+    //     });
+    // }
 });
