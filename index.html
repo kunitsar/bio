@@ -1,77 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atribossfuckyeah - Digital Zen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Fira+Code:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>atribossfuckyeah) | Profile</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="background-container" id="backgroundContainer">
-        <!-- Canvas для снега/дождя -->
-        <canvas id="weatherCanvas"></canvas>
-
-        <!-- Летающие надписи gorestreet -->
-        <div class="gorestreet-word" style="--x:10vw; --y:20vh; --size:2vw; --speed:15s;">gorestreet</div>
-        <div class="gorestreet-word" style="--x:60vw; --y:10vh; --size:2.5vw; --speed:12s;">gorestreet</div>
-        <div class="gorestreet-word" style="--x:30vw; --y:80vh; --size:1.8vw; --speed:18s;">gorestreet</div>
-        <div class="gorestreet-word" style="--x:80vw; --y:50vh; --size:2.2vw; --speed:10s;">gorestreet</div>
-        <div class="gorestreet-word" style="--x:15vw; --y:60vh; --size:2.1vw; --speed:16s;">gorestreet</div>
-    </div>
-
-    <main class="main-content-wrapper">
-        <div class="bio-card">
-            <div class="avatar-container">
-                <img src="https://via.placeholder.com/100x100?text=A" alt="Avatar" id="avatarImage" class="avatar">
-            </div>
-            <div class="terminal-bio-content">
-                <p class="section-title">bios</p>
-                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">System:</span> Arch Linux</p>
-                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">WM:</span> Hyprland</p>
-                <p><span class="prompt-arrow">&gt;</span> <span class="sys-info">Terminal:</span> zellij</p>
-                <br>
-                <p><span class="sys-label">User:</span> atribossfuckyeah</p>
-                <p><span class="sys-label">Discord:</span> <a href="https://discordapp.com/users/k71f" target="_blank">k71f</a></p>
-                <p><span class="sys-label">Age:</span> 19</p>
-                <br>
-                <div class="command-line">
-                    <span class="prompt">[atribossfuckyeah@ARCH ~]$</span> <span class="blink-cursor">_</span>
+    <div class="background-glow"></div>
+    
+    <div class="container">
+        <main class="glass-card">
+            <header>
+                <div class="avatar-wrapper">
+                    <!-- Можешь вставить ссылку на свою аву вместо этой картинки -->
+                    <img src="https://imgur.com" alt="avatar" class="avatar">
+                    <div class="status-dot"></div>
                 </div>
-            </div>
-        </div>
+                <h1>atribossfuckyeah)</h1>
+                <p class="tag">@k71f</p>
+            </header>
 
-        <div class="music-player-container">
-            <audio id="audioPlayer" controls></audio>
-            <div class="player-controls">
-                <input type="file" id="uploadMusic" accept="audio/*" style="display: none;">
-                <label for="uploadMusic" class="player-button"><i class="fas fa-upload"></i> Upload MP3</label>
-            </div>
-        </div>
-    </main>
+            <section class="bio-section">
+                <div class="info-row">
+                    <span class="label">Age</span>
+                    <span class="value">19 y.o.</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">From</span>
+                    <span class="value">Russia</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Based in</span>
+                    <span class="value">Yokohama, Japan</span>
+                </div>
+            </section>
 
-    <div class="settings-panel-toggle" id="settingsToggle"><i class="fas fa-cog"></i></div>
-    <div class="settings-panel" id="settingsPanel">
-        <h3>Настройки</h3>
-        <div class="setting-item">
-            <input type="file" id="uploadBackground" accept="image/*" style="display: none;">
-            <label for="uploadBackground" class="setting-button"><i class="fas fa-image"></i> Upload Background</label>
-        </div>
-        <div class="setting-item">
-            <input type="file" id="uploadAvatar" accept="image/*" style="display: none;">
-            <label for="uploadAvatar" class="setting-button"><i class="fas fa-user-circle"></i> Upload Avatar</label>
-        </div>
-        <div class="setting-item">
-            <button id="toggleWeather" class="setting-button"><i class="fas fa-cloud-showers-heavy"></i> Toggle Rain</button>
-        </div>
-        <div class="setting-item">
-            <button id="saveSettings" class="setting-button"><i class="fas fa-save"></i> Save Settings</button>
-        </div>
-        <div class="setting-item">
-            <button id="resetSettings" class="setting-button"><i class="fas fa-undo"></i> Reset Settings</button>
-        </div>
+            <footer>
+                <a href="https://discord.com" class="discord-btn">
+                    <span>Contact via Discord</span>
+                </a>
+            </footer>
+        </main>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
