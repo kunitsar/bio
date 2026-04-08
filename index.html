@@ -3,20 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моё Био</title>
+    <title>k71f | Bio</title>
+    
+    <!-- Настройка для Дискорда (превью ссылки) -->
+    <meta property="og:title" content="k71f Profile">
+    <meta property="og:description" content="Личная страница k71f. Контакты и ссылки.">
+    <meta name="theme-color" content="#7289da">
+
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #121212; color: white; }
-        .card { text-align: center; padding: 20px; border: 1px solid #333; border-radius: 15px; background: #1e1e1e; }
-        a { display: block; margin: 10px 0; color: #00a8ff; text-decoration: none; border: 1px solid #00a8ff; padding: 10px; border-radius: 5px; transition: 0.3s; }
-        a:hover { background: #00a8ff; color: white; }
+        /* Анимированный градиент на фоне */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Эффект матового стекла */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            max-width: 350px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #fff, #7289da);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .discord-tag {
+            color: #7289da;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: #7289da;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(114, 137, 218, 0.4);
+        }
+
+        /* Пульсирующая точка статуса */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #43b581;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #43b581;
+        }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <h1>Привет, я [Твой Ник]</h1>
-        <p>Краткое био о себе: люблю игры, код и Дискорд.</p>
-        <a href="https://discord.com">Мой Discord</a>
-        <a href="https://t.me">Telegram</a>
+        <div class="status">
+            <div class="dot"></div> Online
+        </div>
+        
+        <h1>k71f</h1>
+        <span class="discord-tag">@k71f</span>
+        
+        <p class="description">
+            Тут какое-то описание. Можно написать про софт, игры или просто оставить загадочную фразу. 
+        </p>
+
+        <div class="links">
+            <a href="https://discord.com" class="btn" target="_blank">Discord Profile</a>
+            <a href="#" class="btn">Telegram</a>
+            <a href="#" class="btn">Steam</a>
+        </div>
     </div>
+
 </body>
 </html>
